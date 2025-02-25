@@ -946,230 +946,130 @@ Recipe Cards Container
 
 /* follow us*/
 
-.cta-section {
-  background-color: #dffda7; 
-  padding: 25px 50px;
+/* Main container styling */
+.start-sec-two {
+  padding: 3em 1em;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2em;
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+/* Icon container */
+.icon-div {
   display: flex;
   justify-content: center;
+  width: 100%;
   align-items: center;
+  font-family: "Chakra Petch", sans-serif;
+  gap: 1em;
   flex-wrap: wrap;
 }
 
-.cta-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; 
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .icon-div {
+    width: 100%;
+    flex-wrap: wrap;
+  }
 }
 
-.social-menu {
-  display: flex; 
-  align-items: center; 
-  gap: 20px; 
-  flex-wrap: wrap; 
+@media (max-width: 768px) {
+  .icon-div {
+    width: 100%;
+    flex-wrap: wrap;
+  }
 }
 
-.social-menu p {
-  font-size: 1.4rem;
-  color: black;
-  margin: 0;
+@media (max-width: 480px) {
+  .icon-div {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .start-sec-two {
+    padding: 2em 0.5em;
+  }
 }
 
-.social-menu ul {
-  display: flex;
-  gap: 15px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.social-menu ul li {
-  margin: 0 10px;
-}
-
-.social-menu ul li a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  transition: 300ms ease-in;
-  color: green;
-  font-size: 20px;
-  border: 2px solid green;
+/* Icon styling */
+.icon1 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.social-menu ul li a:hover {
-  transform: scale(1.2);
-  background-color: white;
-  border-radius: 50%;
-}
-
-.social-menu ul li a i {
-  color: green;
-}
-
-.social-menu ul li a.instagram:hover {
-  background-color: #f55a8d;
-  border-color: #E1306C;
-}
-
-.social-menu ul li a.instagram i {
-  color: #E1306C;
-}
-
-.social-menu ul li a.instagram:hover i {
-  color: white;
-}
-
-.social-menu ul li a.pinterest:hover {
-  background-color: #f11e3e;
-  border-color: #f11e3e;
-}
-
-.social-menu ul li a.pinterest i {
-  color: #f11e3e;
-}
-
-.social-menu ul li a.pinterest:hover i {
-  color: white;
-}
-
-.social-menu ul li a.facebook:hover {
-  background-color: #3186f7;
-  border-color: #3186f7;
-}
-
-.social-menu ul li a.facebook i {
-  color: #3186f7;
-}
-
-.social-menu ul li a.facebook:hover i {
-  color: white;
-}
-
-.social-menu ul li a.twitter:hover {
-  background-color: #1DA1F2;
-  border-color: #1DA1F2;
-}
-
-.social-menu ul li a.twitter i {
-  color: #1DA1F2;
-}
-
-.social-menu ul li a.twitter:hover i {
-  color: white;
-}
-
-.email-signup p {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #a94442;
-}
-
-.email-signup p span {
-  font-size: 2rem;
-  font-weight: normal;
-  color: #a94442;
-  opacity: 0.5;
-  font-style: italic;
-}
-
-.email-signup form {
   display: flex;
-  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  border: 1px solid #139f13;
+  color: #ffffff;
+  font-weight: bolder;
+  background-color: rgb(19, 159, 19);
+  background-image: linear-gradient(30deg, #ffffff2c 50%, transparent 50%);
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position: 0%;
+  transition: background 300ms ease-in;
 }
 
-.email-signup input {
-  padding: 8px 20px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  font-weight: 400;
-  color: rgb(71, 68, 68);
-}
-
-.email-signup input::placeholder {
-  color: #999;
-}
-
-.email-signup .error {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-.email-signup button {
-  background-color: #ff6600; 
-  color: white;
+.icon1:hover {
   border: none;
-  padding: 8px 15px;
-  cursor: pointer;
-  font-weight: bold;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-position: 100%;
+  color: #c266d3;
 }
 
-.email-signup button:hover {
-  background-color: #e65c00;
+/* Social media hover effects */
+.start-insta:hover {
+  background-color: #ff2fd2;
+  color: white;
 }
 
-.email-signup input:focus {
+.pin:hover {
+  color: white;
+  background-color: #ff0000;
+}
+
+.twitt:hover {
+  color: white;
+  background-color: #49a8fa;
+}
+
+.face:hover {
+  color: white;
+  background-color: #3083ff;
+}
+
+/* Input field */
+.start-input {
+  width: 200px;
+  height: 35px;
+  text-indent: 12px;
+}
+
+/* Signup button */
+.start-signup {
+  text-align: center;
+}
+
+/* Submit button */
+.start-btn-go {
+  height: 35px;
+  width: 40px;
+  border: none;
   outline: none;
-  border: 2px solid #ccc;
+  background: linear-gradient(90deg, #b3ff00, #277045);
+  color: rgb(255, 255, 255);
+  font-size: 1.3em;
+  cursor: pointer;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .cta-content {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-  }
-
-  .social-menu {
-      flex-direction: column;
-      gap: 10px; 
-  }
-
-  .social-menu p {
-      font-size: 1.2rem;
-  }
-
-  .social-menu ul {
-      gap: 10px; 
-  }
-
-  .social-menu ul li a {
-      width: 45px;
-      height: 45px;
-      font-size: 18px;
-  }
-
-  .email-signup p {
-      font-size: 1.2rem; 
-  }
-
-  .email-signup form {
-      flex-direction: column;
-      gap: 10px;
-  }
-
-  .email-signup input {
-      width: 100%; 
-      font-size: 14px; 
-  }
-
-  .email-signup button {
-      width: 100%; 
-  }
+.start-btn-go:hover {
+  background: linear-gradient(90deg, #277045, #b3ff00);
+  color: #277045;
 }
-/* follow us end*/
 
 .footer {
   background-color: #ffffff;

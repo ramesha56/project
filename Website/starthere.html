@@ -256,6 +256,60 @@
     </div>
   </div>
 </div>
+<script>
+  // navbar click
+
+function toggleMenu() {
+  document.querySelector(".nav-links").classList.toggle("active");
+}
+window.addEventListener("resize", function() {
+  if (window.innerWidth <= 768) {
+      document.querySelector(".logo-container").style.justifyContent = "flex-start";
+  } else {
+      document.querySelector(".logo-container").style.justifyContent = "center";
+  }
+});
+// navbar end
+
+// Navbar Avatar 
+const navbar = document.querySelector(".navbar");
+
+
+const avatarContainer = document.createElement("div");
+avatarContainer.id = "user-avatar";
+avatarContainer.style.cursor = "pointer";
+// avatarContainer.style.background = "#ff9800";
+avatarContainer.style.background = "#ffe604fb";
+avatarContainer.style.color = "rgb(28, 78, 8)";
+avatarContainer.style.width = "40px";
+avatarContainer.style.height = "40px";
+avatarContainer.style.display = "flex";
+avatarContainer.style.alignItems = "center";
+avatarContainer.style.justifyContent = "center";
+avatarContainer.style.borderRadius = "50%";
+
+
+const navbarRight = document.createElement("div");
+navbarRight.classList.add("navbar-right");
+
+navbarRight.appendChild(document.querySelector(".hamburger"));
+navbarRight.appendChild(avatarContainer);
+
+navbar.appendChild(navbarRight);
+//  Authentication 
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        const email = user.email;
+        const firstLetter = email.charAt(0).toUpperCase();
+        avatarContainer.textContent = firstLetter;
+        avatarContainer.addEventListener("click", () => {
+            window.location.href = "profile.html";
+        });
+    } else {
+        avatarContainer.style.display = "none";
+    }
+});
+</script>
 <script type="module" src="firebase.js"></script>
 <script type="module" src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
