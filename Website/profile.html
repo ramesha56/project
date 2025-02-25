@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+       <!-- font family one -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+  <!-- two-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <!-- three -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+   <!-- four -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+   <!-- five -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+     * { margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+body {font-family: Arial, sans-serif;}
+
+        /* Navbar */
+        .navbar {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(164, 230, 104, 0.349); 
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.logo {
+    width: 55px;
+    height: auto;
+}
+
+.site-name {
+    color: rgb(46, 151, 46);
+    font-size: 20px;
+    margin: 0;
+font-family: "Protest Revolution", sans-serif; 
+}
+.nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 50px;
+    margin-top: 10px; 
+    font-family: "Chakra Petch", sans-serif;
+    letter-spacing: 2px;
+    font-weight: bold;
+    
+}
+.nav-links li {
+    position: relative;
+    padding-bottom: 0.1px; 
+}
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #28a03c;  
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out; 
+}
+.nav-links li:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-links a {
+    font-size: 14px;
+    padding: 5px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease-in-out;
+}
+.navbar-right {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+#user-avatar {
+    cursor: pointer;
+    background: #ff9800;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger span {
+    background: rgb(63, 160, 79);
+    height: 3px;
+    width: 25px;
+    margin: 4px;
+    display: block;
+}
+/*Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.911);
+        backdrop-filter: blur(2px);
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: transform 0.5s ease-in-out, opacity 0.5s;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.507);
+    }
+
+    .nav-links.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+        .profile-container {
+            margin-top: -60px; 
+            text-align: center;
+            padding: 20px;
+        }
+        .banner-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            position: relative;
+        }
+
+       #user-avatar{
+        width: 120px; height: 120px; font-size: 48px; position: absolute; top: 230px; left: 50%; transform: translateX(-50%);
+      background-color: #fcff4d;
+      color: green;
+    }
+        .user-info {
+            background: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.603);
+            margin-top: 60px;
+            width: 80%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+        .user-info h2, .user-info p {
+            margin: 0;
+            padding: 5px 0;
+        }
+        .logout-btn {
+            background: #ff4d4d;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="assets/images/logoo.png" alt="Spicy Bite Logo" class="logo">
+            <h1 class="site-name">SPICY BITE</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="starthere.html">Start Here</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+<!-- navbar end -->
+ 
+       <!-- Banner Image -->
+       <div style="position: relative;">
+        <img src="assets/images/bgpro.avif" alt="Banner" class="banner-image">
+        
+        <div class="avatar" id="user-avatar" >?</div>
+    </div>
+
+    <!-- Profile Information -->
+    <div class="profile-container">
+        <div class="user-info">
+            <h2 id="user-name">Loading...</h2>
+            <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
+            <p><strong>Phone:</strong> <span id="user-phone">Loading...</span></p>
+            <button class="logout-btn" id="logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module">
+        import { auth, db } from './firebase.js';
+        import { onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+        import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+        const avatarElement = document.querySelector("#user-avatar");
+        const nameElement = document.querySelector("#user-name");
+        const emailElement = document.querySelector("#user-email");
+        const phoneElement = document.querySelector("#user-phone");
+        const logoutBtn = document.querySelector("#logout-btn");
+
+        // Check user auth state
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                // User is signed in
+                const userDocRef = doc(db, 'users', user.uid);
+                const userDocSnap = await getDoc(userDocRef);
+
+                if (userDocSnap.exists()) {
+                    const userData = userDocSnap.data();
+                    avatarElement.textContent = userData.name.charAt(0).toUpperCase();
+                    nameElement.textContent = userData.name;
+                    emailElement.textContent = userData.email;
+                    phoneElement.textContent = userData.phone;
+                } else {
+                    console.log("No such user data!");
+                }
+            } else {
+                // Redirect to home page if not logged in
+                window.location.href = 'home.html';
+            }
+        });
+
+        // Logout function
+        logoutBtn.addEventListener("click", async () => {
+            try {
+                await signOut(auth);
+                window.location.href = '/';
+            } catch (error) {
+                console.log("Error signing out:", error.message);
+            }
+        });
+
+
+        // navbr functionality
+        function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("active");
+    }
+    window.addEventListener("resize", function() {
+  if (window.innerWidth <= 768) {
+      document.querySelector(".logo-container").style.justifyContent = "flex-start";
+  } else {
+      document.querySelector(".logo-container").style.justifyContent = "center";
+  }
+});
+
+
+    </script>
+     <script type="module" src="firebase.js"></script>
+     <script type="module" src="script.js"></script>
+</body>
+</html>

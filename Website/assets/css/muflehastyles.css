@@ -1,0 +1,860 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Ysabeau+SC:wght@1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&family=Noto+Sans+PhagsPa&family=Playwrite+GB+S&family=Ysabeau+SC:wght@1..1000&display=swap');
+
+
+* { margin: 0;
+  padding: 0;
+  box-sizing: border-box;}
+body {font-family: Arial, sans-serif;
+  
+  }
+
+/* ///navbarrr start*/
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  position: sticky; 
+  top: 0; 
+  width: 100%;
+  z-index: 999;  
+  box-shadow: 0 2px 10px rgba(164, 230, 104, 0.349); 
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.logo {
+  width: 55px;
+  height: auto;
+}
+
+.site-name {
+  color: rgb(46, 151, 46);
+  font-size: 20px;
+  margin: 0;
+  font-family: "Protest Revolution", sans-serif;
+}
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 50px;
+  margin-top: 10px; 
+  font-family: "Chakra Petch", sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+  
+}
+
+
+.nav-links li {
+  position: relative;
+  padding-bottom: 0.1px; 
+}
+
+.nav-links li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #28a03c;  
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out; 
+}
+
+.nav-links li:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-links a {
+  font-size: 14px;
+  padding: 5px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-right {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+#user-avatar {
+  cursor: pointer;
+  background: #d9ff00;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  background: rgb(63, 160, 79);
+  height: 3px;
+  width: 25px;
+  margin: 4px;
+  display: block;
+}
+
+/*Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.911);
+      backdrop-filter: blur(2px);
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: transform 0.5s ease-in-out, opacity 0.5s;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.507);
+  }
+
+  .nav-links.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .hamburger {
+      display: flex;
+  }
+}
+
+/* navbr end */
+
+
+
+
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f4f4f4;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.2em;
+}
+
+
+
+
+/* About Section */
+.about {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+.about-content {
+  flex: 1;
+}
+.about-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.about-me-section {
+  background-color:#ecfdf5;
+  padding: 50px 90px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+   
+    .about-image {
+      flex: 1;
+      max-width: 490px;
+    }
+
+
+/* Image Styling */
+  .about-image img,
+  .about-image video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+ } 
+
+/* Text Styling */
+.about-text {
+  max-width: 650px;
+  margin: 0 auto;
+  align-items: center;
+}
+.about-text h2 {
+  font-size: 60px;
+  font-weight: bold;
+  color:  #41856e;
+  font-family: "Great Vibes", serif;
+  text-transform: capitalize;
+
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+.about-text h3 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+.about-text h3 span {
+  font-weight: 700;
+  color:  #41856e;
+}
+.about-text p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}  
+
+/* CTA Section */
+
+.cta-section {
+  background-color: #dffda7; 
+  padding: 25px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cta-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; 
+}
+
+.social-menu {
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+  flex-wrap: wrap; 
+}
+
+.social-menu p {
+  font-size: 1.4rem;
+  color: black;
+  margin: 0;
+}
+
+.social-menu ul {
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.social-menu ul li {
+  margin: 0 10px;
+}
+
+.social-menu ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transition: 300ms ease-in;
+  color: green;
+  font-size: 20px;
+  border: 2px solid green;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-menu ul li a:hover {
+  transform: scale(1.2);
+  background-color: white;
+  border-radius: 50%;
+}
+
+.social-menu ul li a i {
+  color: green;
+}
+
+.social-menu ul li a.instagram:hover {
+  background-color: #f55a8d;
+  border-color: #E1306C;
+}
+
+.social-menu ul li a.instagram i {
+  color: #E1306C;
+}
+
+.social-menu ul li a.instagram:hover i {
+  color: white;
+}
+
+.social-menu ul li a.pinterest:hover {
+  background-color: #f11e3e;
+  border-color: #f11e3e;
+}
+
+.social-menu ul li a.pinterest i {
+  color: #f11e3e;
+}
+
+.social-menu ul li a.pinterest:hover i {
+  color: white;
+}
+
+.social-menu ul li a.facebook:hover {
+  background-color: #3186f7;
+  border-color: #3186f7;
+}
+
+.social-menu ul li a.facebook i {
+  color: #3186f7;
+}
+
+.social-menu ul li a.facebook:hover i {
+  color: white;
+}
+
+.social-menu ul li a.twitter:hover {
+  background-color: #1DA1F2;
+  border-color: #1DA1F2;
+}
+
+.social-menu ul li a.twitter i {
+  color: #1DA1F2;
+}
+
+.social-menu ul li a.twitter:hover i {
+  color: white;
+}
+
+.email-signup p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a94442;
+}
+
+.email-signup p span {
+  font-size: 2rem;
+  font-weight: normal;
+  color: #a94442;
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.email-signup form {
+  display: flex;
+  gap: 5px;
+}
+
+.email-signup input {
+  padding: 8px 20px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(71, 68, 68);
+}
+
+.email-signup input::placeholder {
+  color: #999;
+}
+
+.email-signup .error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.email-signup button {
+  background-color: #ff6600; 
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.email-signup button:hover {
+  background-color: #e65c00;
+}
+
+.email-signup input:focus {
+  outline: none;
+  border: 2px solid #ccc;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .cta-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .social-menu {
+      flex-direction: column;
+      gap: 10px; 
+  }
+
+  .social-menu p {
+      font-size: 1.2rem;
+  }
+
+  .social-menu ul {
+      gap: 10px; 
+  }
+
+  .social-menu ul li a {
+      width: 45px;
+      height: 45px;
+      font-size: 18px;
+  }
+
+  .email-signup p {
+      font-size: 1.2rem; 
+  }
+
+  .email-signup form {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .email-signup input {
+      width: 100%; 
+      font-size: 14px; 
+  }
+
+  .email-signup button {
+      width: 100%; 
+  }
+}
+/* follow us end*/
+
+/* team */
+.team{
+  width: 100%;
+  height: 90vh;
+  min-height:120vh ;
+  background-image : url(./asset/image/image/bg1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.team h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin-bottom: 10px;
+  font-family: "Protest Revolution", sans-serif;
+  text-transform: uppercase;
+  /* font-family: "Playwrite GB S", serif  !important; */
+ 
+}
+.team .team_box{
+   width: 100%;                    /*   95% */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 13%;
+  font-family: 'Poppins', sans-serif; 
+
+}
+.mb-4 {
+  /* font-style: italic; */
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  text-align: center;
+ 
+  font-weight: 50%;
+}
+.mb-4::before, 
+.mb-4::after {
+  content: '"'; /* Adds quotes */
+  font-size: 18px;
+  color: #888;
+}
+p {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+
+.team .team_box .profile{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* cursor: pointer;  */
+  transition: 0.4s;
+  box-shadow: 0 0 8px #56d499;
+}
+
+.team .team_box .profile:hover{
+  border-radius: 20px;
+  transform: scale(1.1);
+  height: 300px;
+}
+
+.team .team_box .profile img{
+   width: 200px;               /* 250 , 200*/
+  height: 200px;                /* 250 , 200   rgba(0,0,0,0.5);*/
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 15px 8px #047756 ;
+  z-index: 2;
+  transition: 0.4s;
+}
+
+.team .team_box .profile:hover img{
+  border-radius: 70px;          
+  margin-top: -200px;                 
+}
+
+.team .team_box .profile .info{
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  transition: 0.4s;
+}
+.team .team_box .profile:hover .info{
+  top: 55%;
+}
+
+.team .team_box .profile .info .name{
+  color:#0a6b56;
+  margin-bottom: 15px;
+  font-size: 19px !important;
+  font-weight: bold;
+}
+
+.team .team_box .profile .info .bio{
+  width: 80%;
+  text-align: center;
+  margin: 0 auto 10px auto;   
+  font-size: 14px; 
+  line-height: 1.4;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+
+
+}
+
+.team .team_box .profile .info .team_icon i{
+  margin: 10px 5px 5px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.team .team_box .profile .info .team_icon i:hover{
+  color: #2596be;
+}
+.full-details {
+  
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+  margin-left: 43%;
+  border-radius: 0%;
+  padding: 12px 10px  8px 10px;
+  width: 15%;
+  height: 15%;
+  margin-top: -40px;
+ 
+}
+.full-details:hover {
+  background-color: #6a3a5c;
+  color: white;
+}
+.container {
+  display: flex;
+  max-width: 900px;
+  padding: 30px;
+}
+.left {
+  text-align: center;
+  padding-right: 40px;
+}
+/* .logo {
+  width: 200px;
+  height: auto;
+} */
+.button {
+  background-color: #f89556; /* Orange button */
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.right {
+  max-width: 500px;
+}
+.right a {
+  color: yellow;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/* video section */
+
+.heading{
+  text-align: center;
+  font-size: 4rem;
+  color: #333;
+}
+
+.heading span {
+  color: #008000;
+}
+
+.video-section {
+  padding:0 30px 30px 30px; 
+  border: 1rem solid #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.video-section .row .video-container h3 {
+
+  position: absolute;
+  bottom: 50px;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  color: #333;
+  border-radius: 0.5rem;
+  
+}
+.video-section .row .content{
+  flex: 1 1 40%;
+  max-width: 500px;
+}
+.video-section .row .content h3{
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.video-section .row  .content p{
+  font-size: 15px;
+  color: #666;
+  padding: 0.5rem 0;
+  line-height: 1.6;
+ 
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background: #333;
+  color: #fff;
+  padding: 0.9rem 2rem;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: #008000;
+}
+
+/* hero end */
+
+
+
+
+
+/* Footer Styles */
+.footer {
+  background-color: #ffffff;
+  color: #277045;
+  padding: 40px 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  border-top: 5px solid #277045;
+}
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+.footer-logo {
+  flex: 1;
+  min-width: 300px;
+}
+.logo-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.logo-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #277045;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.logo-title {
+  font-family: "Protest Revolution", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: #277045;
+}
+.logo-description {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+}
+.footer-links {
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+}
+.footer-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #277045;
+}
+.links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.links-list li {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.links-list i {
+  font-size: 16px;
+}
+.links-list a {
+  color: #277045;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s, transform 0.3s;
+}
+.links-list a:hover {
+  color: rgb(0, 139, 19);
+  transform: scale(1.1);
+}
+.footer-contact {
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+  color: #555;
+  line-height: 1.8;
+}
+.footer-contact i {
+  margin-right: 10px;
+  font-size: 16px;
+}
+.footer-contact strong {
+  color: #277045;
+}
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+.footer-bottom p {
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      text-align: center;
+  }
+  .logo-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+  }
+  .logo-text {
+      text-align: center;
+  }
+}
+/* footer end */
+

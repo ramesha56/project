@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website</title>
+    <!-- style.css -->
+     <link rel="stylesheet" href="./Website/assets/css/style.css">
+    <!-- font family one -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+  <!-- two-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <!-- three -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+   <!-- four -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+   <!-- five -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+  <!-- top -->
+    <div class="main-content">
+        <p>
+       ❤OUR RECIPES, YOUR INBOX
+            <a href="#" id="open-card"> SIGN UP</a>❤
+        </p>
+    </div>
+
+ <!-- Signup Modal -->
+ <div class="overlay" id="overlay">
+    <div class="card">
+        <button class="close-btn" id="close-card">&times;</button>
+        <h2>Sign Up</h2>
+        <p>Please enter your details to sign up.</p>
+        <form id="signup-form">
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Enter your username" required>
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-group">
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                <i class="fas fa-phone"></i>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="input-group password-group">
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <i class="fas fa-eye toggle-password" onclick="togglePassword('password')"></i>
+            </div>
+            <br>
+            <button type="submit">Sign Up</button>
+      
+        </form>
+        <p>Already have an account? <a href="#" id="open-login">Login</a></p>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div class="overlay" id="login-overlay">
+    <div class="card">
+        <button class="close-btn" id="close-login">&times;</button>
+        <h2>Sign In</h2>
+        <p>Enter your credentials to log in.</p>
+        <form id="login-form">
+            <div class="input-group">
+                <input type="email" id="login-email" placeholder="Enter your email" required>
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="input-group password-group">
+                <input type="password" id="login-password" placeholder="Enter your password" required>
+                <i class="fas fa-eye toggle-password" onclick="togglePassword('login-password')"></i>
+            </div>
+            <br>
+            <button type="submit">Login</button>
+        
+        </form>
+        <p>Already have an account? <a href="#" id="open-card">SignUp</a></p>
+        <p><a href="#" id="forgot-password-link">Forgot Password?</a></p>
+    </div>
+</div>
+
+
+
+
+
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="logo-container">
+          <img src="./website/assets/images/logoo.png" alt="Spicy Bite Logo" class="logo">
+          <h1 class="site-name">SPICY BITE</h1>
+      </div>
+      <ul class="nav-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./Website/about.html">About</a></li>
+          <li><a href="./Website/menu.html">Our Menu</a></li>
+          <li><a href="./Website/starthere.html">Start Here</a></li>
+          <li><a href="./Website/starthere.html">Contact</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+  </nav>
+
+
+<!-- text span -->
+
+<div class="half-div">
+    Simple recipes made for <span> real, actual, everyday life </span>
+</div>
+
+<!-- Background Image Section -->
+<div class="bg-image">
+    <div class="search-container">
+        <label for="search" class="search-label">Find Your Favorite Recipes</label>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search your recipes">
+            <button class="search-btn">
+                <span>View All Recipes</span>
+                <span class="plus-icon">+</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+   <!-- Scrollable images section -->
+<div class="scrollable-images">
+    <div class="image-container">
+        <div class="image-item">
+            <img src="./website/assets/images/dinner1.jpg" alt="Image 1">
+            <span>Dinner</span>
+        </div>
+        <div class="image-item">
+            <img src="./website/assets/images/instant2.webp" alt="Image 4">
+            <span>Instant Pot</span>
+        </div>
+        <div class="image-item">
+            <img src="./website/assets/images/easy3.jpg" alt="Image 2">
+            <span>Easy</span>
+        </div>
+        <div class="image-item">
+            <img src="./website/assets/images/healthy4.jpg" alt="Image 3">
+            <span>Healthy</span>
+        </div>
+
+        <div class="image-item">
+            <img src="./website/assets/images/Vegetarian5.webp" alt="Image 5">
+            <span>Vegetarian</span>
+        </div>
+        <div class="image-item">
+            <img src="./website/assets/images/Vegan6.jpg" alt="Image 6">
+            <span>Vegan</span>
+        </div>
+        <div class="image-item">
+            <img src="./website/assets/images/soup7.jpg" alt="Image 7">
+            <span>Soups</span>
+        </div>
+        <div class="image-item">
+            <img src="./website/assets/images/salad8.jpg" alt="Image 8">
+            <span>Salad</span>
+        </div>
+        <div class="image-item">
+            <img src="./website/assets/images/mealprep.webp" alt="Image 9">
+            <span>Meal Prep</span>
+        </div></div></div>
+   <!-- Scrollable images section end -->
+
+<!-- search -->
+<!-- <div class="search-container">
+    <label for="search" class="search-label">Find Your Favorite Recipes</label>
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Search your recipes">
+        <button class="search-btn">
+            <span>View All Recipes</span>
+            <span class="plus-icon">+</span>
+        </button>
+    </div>
+</div> -->
+<!--////////////////// post -->
+<h1>The Latest & Greatest</h1>
+<div class="container">
+    <div class="latest">
+        <div class="post">
+            <img src="./website/assets/images/birpost.webp" alt="Post Image">
+            <div class="post-content">
+                <p class="post-date">February 6, 2025</p>
+                <h2 class="post-title">Chicken Biryani</h2>
+                <p class="post-description">One of the most royal delicacies that you can enjoy on any occasion or festival, Chicken Biryani is ...
+                    Ingredients <br>
+                    1 cup basmati rice boiled <br>
+                    600 grams chicken <br>
+                    1/2 teaspoon mint leaves <br>
+                    1 tablespoon garam masala powder <br>
+                    0 As required salt</p>
+                <a href="#" class="post-link">Continue Reading</a>
+            </div>
+        </div>
+        <div class="post">
+            <img src="./website/assets/images/tikapost .avif" alt="Post Image">
+            <div class="post-content">
+                <p class="post-date">December 22, 2024</p>
+                <h2 class="post-title">Chicken Tikka</h2>
+                <p class="post-description">Marinate chicken pieces in tikka spices overnight then cook on the barbecue or grill the next day. ...
+                    Ingredients <br>
+                    3 large chicken breasts cut into chunks <br>
+                    75g Greek yogurt <br>
+                    2 tbsp ginger and garlic paste <br>
+                    1 tbsp madras curry powder <br>
+                    1 tsp ground cumin</p>
+                <a href="#" class="post-link">Continue Reading</a>
+            </div>
+        </div>
+        <div class="post">
+            <img src="./website/assets/images/haleempost.jpg" alt="Post Image">
+            <div class="post-content">
+                <p class="post-date">January 22, 2025</p>
+                <h2 class="post-title">Chicken Haleem</h2>
+                <p class="post-description">Easy haleem recipe with chicken and grains. Haleem is a porridge-like stew found all over the Indian ...
+                    Ingredients <br>
+                    2 Tbsp vegetable oil <br>
+                    1 Tbsp ghee <br>
+                    500 g boneless chicken thighs ((or chicken breasts, I prefer the flavour of thighs)) <br>
+                    750 ml water <br>
+                    ½ Tbsp salt</p>
+                <a href="#" class="post-link">Continue Reading</a>
+            </div>
+        </div>
+        <div class="post">
+            <img src="./website/assets/images/kormapost.jpg" alt="Post Image">
+            <div class="post-content">
+                <p class="post-date">December 6, 2024</p>
+                <h2 class="post-title">Chicken korma</h2>
+                <p class="post-description">Lamb pieces braised in yoghurt, ...
+                    Ingredients <br>
+                    700 g Lamb (Cut into small pieces) (See Notes)br
+                    1 Large Onion <br>
+                    1 Cup Plain Yoghurt <br>
+                    1 tbsp Garlic Ginger paste <br>
+                    1½ tsp Salt</p>
+                <a href="#" class="post-link">Continue Reading</a>
+            </div>
+        </div>
+        <div class="view-more">
+            <a href="#" class="view-more-btn">View More Recent Posts</a>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="banner">
+            <img src="./website/assets/images/col.webp" alt="Banner">
+            <p class="banner-text"></p>
+        </div>
+        <div class="recipe-collections">
+            <h3>Recipe Collections</h3>
+            <ul>  <li><a href="recipe.html?type=instant-pot">Instant Pot Recipes</a></li>
+            <li><a href="recipe.html?type=vegan">Vegan Recipes</a></li>
+            <li><a href="recipe.html?type=meal-prep">Meal Prep Recipes</a></li>
+            <li><a href="recipe.html?type=easy">Easy Recipes</a></li>
+            <li><a href="recipe.html?type=healthy">Healthy Recipes</a></li>
+            <li><a href="recipe.html?type=salad">Salad Recipes</a></li>
+            <li><a href="recipe.html?type=soup">Soup Recipes</a></li>
+            <li><a href="recipe.html?type=vegetarian">Vegetarian Recipes</a></li>
+            <li><a href="recipe.html?type=dinner">Dinner Recipes</a></li>  </ul>
+        </div>
+        <br>
+        <div class="banner">
+            <img src="./website/assets/images/col2.jpg" alt="Banner">
+            <p class="banner-text"></p>
+        </div>
+    </div>
+</div>
+<!-- post end -->
+<!-- Container with Three Images -->
+<div class="images-container">
+    <div class="image-overlay">
+        <p class="greeting">Hello</p>
+        <p class="nice-to-meet">Nice to meet you!</p>
+        <p class="team-description">We are a passionate team dedicated to bringing you the best food experiences. Together, we have created this platform to explore and enjoy food!</p>
+        <div class="view-more">
+            <a href="./Website/about.html" class="learn-more-btn">learn More</a>
+        </div>
+        <!-- <button class="learn-more-btn">Learn More</button> -->
+    </div>
+    <img src="./website/assets/images/team1.jpg" alt="Image 2">
+    <img src="./website/assets/images/team2.webp" alt="Image 3">
+</div>
+
+
+  
+
+
+      <!-- add rec -->
+      <div class="container">
+        <div class="recipe-form-container">
+          <h2 class="form-title">Add Recipe</h2>
+          <form id="recipe-form" class="recipe-form">
+            <label for="recipe-title">Recipe Title</label>
+            <input type="text" id="recipe-title" placeholder="Enter recipe title" required />
+      
+            <label for="recipe-description">Recipe Description</label>
+            <textarea
+              id="recipe-description"
+              rows="4"
+              placeholder="Write a brief description..."
+              required
+            ></textarea>
+      
+            <label for="recipe-image">Recipe Image</label>
+            <input type="file" id="recipe-image" accept="image/*" />
+      
+            <button type="submit" class="submit-btn">Add Recipe</button>
+          </form>
+        </div>
+        <div class="recipe-container" id="recipe-list">
+          <!--  dynamically -->
+        </div>
+      </div>
+     
+      <div class="toast" id="toast" style="display: none;">Recipe Added Successfully!</div>
+   
+<!-- add rec end -->
+ 
+<!--follow us -->
+<section class="cta-section">
+    <div class="cta-content">
+      <div class="social-menu">
+        <p>Follow Us</p>
+        <ul>
+            <li><a href="https://instagram.com" class="instagram"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" class="pinterest"><i class="fa-brands fa-pinterest"></i></a></li>
+            <li><a href="https://facebook.com" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+          </ul>
+      </div>
+      <div class="email-signup">
+        <p><span>Sign Up</span> for Email Updates</p>
+        <form>
+          <input type="text" placeholder="First Name" required>
+          <input type="email" placeholder="Email" required>
+          <button type="submit">Go</button>
+        </form>
+      </div>
+    </div>
+  </section> 
+  <!--follow us end -->
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <div class="logo-content">
+        <img src="./website/assets/images/logoo.png" alt="Logo" class="logo-img">
+        <div class="logo-text">
+          <h2 class="logo-title">Spicy Bites</h2>
+          <p class="logo-description">
+            Welcome to our website. Connecting people with the best services in town. Follow us for updates!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="footer-links">
+      <h3 class="footer-heading">Quick Links</h3>
+      <ul class="links-list">
+        <li><i class="fa fa-home"></i> <a href="./index.html">Home</a></li>
+        <li><i class="fa fa-info-circle"></i><a href="./Website/about.html" >About</a></li>
+        <li><i class="fa fa-cogs"></i><a href="./Website/starthere.html">Start Here</a></li>
+        <li><i class="fa fa-envelope"></i><a href="./Website/starthere.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h3 class="footer-heading">Contact Us</h3>
+      <p>
+        <i class="fa fa-envelope"></i> <strong>Email:</strong> info@example.com<br>
+        <i class="fa fa-phone"></i> <strong>Phone:</strong> +123 456 7890<br>
+        <i class="fa fa-map-marker"></i> <strong>Address:</strong> 123 Green Lane, City
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Spicy Bites. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("active");
+    }
+  </script>
+
+  
+
+ 
+<script type="module" src="./Website/firebase.js"></script>
+<script type="module" src="./Website/script.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

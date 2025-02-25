@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Ali Khan",
+        "email": "ali@example.com",
+        "message": "I love your website!"
+    },
+    {
+        "name": "Sara Ahmed",
+        "email": "sara@example.com",
+        "message": "How can I order food online?"
+    }
+]

@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Categories</title>
+    <!-- font family one -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+  <!-- two-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <!-- three -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+   <!-- four -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+   <!-- five -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/shafaquestyle.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .category-btn { margin: 10px; }
+        .card { transition: transform 0.3s; background: #fff; padding: 10px; }
+        .card:hover { transform: scale(1.05); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .search-box { width: 100%; max-width: 400px; margin: 10px auto; }
+    </style>
+
+</head>
+<body>
+              
+
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="assets/images/logoo.png" alt="Spicy Bite Logo" class="logo">
+            <h1 class="site-name">SPICY BITE</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html" >About</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="starthere.html">Start Here</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+
+    <div class="container text-center mt-5">
+        <h2 style="margin-top: 10px; font-family: Protest Revolution, sans-serif;
+        font-size: 30px; color: #3f3f3ffb; margin-bottom: 38px; font-weight: bold;   text-transform: uppercase;
+          letter-spacing: 1.2px;">Select a Category</h2>
+        <!-- <input type="text" id="searchInput" class="form-control search-box" placeholder="Search Recipes..."> -->
+        <div class="menu-section">
+            <h3 class="btn btn-success" onclick="showCategory('starter')"> <i class="fas fa-bread-slice"></i>Starter</h3>
+            <h3 class="btn btn-success" onclick="showCategory('veg')"><i class="fas fa-leaf"></i>Vegetarian</h3>
+            <h3  class="btn btn-success" onclick="showCategory('nonveg')"> <i class="fas fa-drumstick-bite"></i> Non Veg</h3>
+            <h3 class="btn btn-success" onclick="showCategory('seafood')"><i class="fas fa-fish"></i>Seafood</h3>
+            <h3 class="btn btn-success" onclick="showCategory('dessert')"><i class="fas fa-birthday-cake"></i>Dessert</h3>
+            <h3 class="btn btn-success" onclick="showCategory('drinks')"><i class="fas fa-cocktail"></i>Drinks</h3>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row" id="menuContainer"></div>
+    </div>
+
+<!-- 
+       Recipe Form 
+      <div class="form-section">
+        <h2>Add a New Recipe</h2>
+        <form id="recipeForm">
+            <label for="recipeTitle">Recipe Title:</label>
+            <input type="text" id="recipeTitle" required>
+
+            <label for="recipeDesc">Description:</label>
+            <textarea id="recipeDesc" required></textarea>
+
+            <label for="recipeImage">Image URL:</label>
+            <input type="text" id="recipeImage" required>
+
+            <button class="btn btn-primary" type="submit">Add Recipe</button>
+        </form>
+    </div> -->
+
+    
+    <div class="menu-grid" id="recipeContainer">
+       
+    </div>
+
+<!-- extra card -->
+
+    
+<div class="card-main">
+    <div class="card" onclick="flipCard(this)">   
+        <div class="card-inner">
+            <div class="card-front">
+                <img src="assets/menuimage/pani puri.jpg" alt="Pani Puri" class="card-img">
+                <div class="card-body">
+                    <div class="title-id">
+                        <h4>Pani Puri</h4>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="title-id">
+                        <div class="price">Medium</div>
+                        <i class="fa-regular fa-heart" onclick="wishlist(this)"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-back">
+                <h3>Pani Puri</h3>
+                <p>Delicious and crispy puris filled with spiced water.</p>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="card" onclick="flipCard(this)">   
+        <div class="card-inner">
+            <div class="card-front">
+                <img src="assets/menuimage/soup.jpg" alt="Soup" class="card-img">
+                <div class="card-body">
+                    <div class="title-id">
+                        <h4>Soup</h4>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="title-id">
+                        <div class="price">Easy</div>
+                        <i class="fa-regular fa-heart" onclick="wishlist(this)"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-back">
+                <h3>Soup</h3>
+                <p>Warm and comforting soup, perfect for all seasons.</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">   
+        <div class="card-inner">
+            <div class="card-front">
+                <img src="assets/menuimage/paan.webp" alt="Soup" class="card-img">
+                <div class="card-body">
+                    <div class="title-id">
+                        <h4>Paan</h4>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="title-id">
+                        <div class="price">Easy</div>
+                        <i class="fa-regular fa-heart" onclick="wishlist(this)"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-back">
+                <h3>Paan</h3>
+                <p>Warm and comforting soup, perfect for all seasons.</p>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- testimonial -->
+
+<div class="testimonial-section">
+    <h2>What Our Food Lovers Say</h2>
+    <div class="testimonial-container">
+        <div class="testimonial">
+            <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="User 1">
+            <p>"The recipes are super easy to follow and taste amazing. Highly recommended!"</p>
+            <span class="author">- Sarah Williams</span>
+        </div>
+        <div class="testimonial">
+            <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="User 2">
+            <p>"This website made me love cooking again. So many delicious recipes to try!"</p>
+            <span class="author">- James Anderson</span>
+        </div>
+        <div class="testimonial">
+            <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="User 3">
+            <p>"I love the variety of dishes! Perfect for beginners and expert chefs alike."</p>
+            <span class="author">- Emma Brown</span>
+        </div>
+    </div>
+</div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- section four -->
+
+<!--follow us -->
+<section class="cta-section">
+    <div class="cta-content">
+      <div class="social-menu">
+        <p>Follow Us</p>
+        <ul>
+            <li><a href="https://instagram.com" class="instagram"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://pinterest.com" class="pinterest"><i class="fa-brands fa-pinterest"></i></a></li>
+            <li><a href="https://facebook.com" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com" class="twitter"><i class="fa-brands fa-twitter"></i></a></li>
+          </ul>
+      </div>
+      <div class="email-signup">
+        <p><span>Sign Up</span> for Email Updates</p>
+        <form>
+          <input type="text" placeholder="First Name" required>
+          <input type="email" placeholder="Email" required>
+          <button type="submit">Go</button>
+        </form>
+      </div>
+    </div>
+  </section> 
+  <!--follow us end -->
+
+
+
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+  
+      <!-- Logo and Description -->
+      <div class="footer-logo">
+        <div class="logo-content">
+          <img src="assets/images/logoo.png" alt="Logo" class="logo-img">
+          <div class="logo-text">
+            <h2 class="logo-title">Spicy Bites</h2>
+            <p class="logo-description">
+              Welcome to our website. Connecting people with the best services in town. Follow us for updates!
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="links-list">
+          <li><i class="fa fa-home"></i> <a href="#">Home</a></li>
+          <li><i class="fa fa-info-circle"></i> <a href="#">About</a></li>
+          <li><i class="fa fa-cogs"></i> <a href="#">Services</a></li>
+          <li><i class="fa fa-envelope"></i> <a href="#">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact Info -->
+      <div class="footer-contact">
+        <h3 class="footer-heading">Contact Us</h3>
+        <p>
+          <i class="fa fa-envelope"></i> <strong>Email:</strong> info@example.com<br>
+          <i class="fa fa-phone"></i> <strong>Phone:</strong> +123 456 7890<br>
+          <i class="fa fa-map-marker"></i> <strong>Address:</strong> 123 Green Lane, City
+        </p>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Spicy Bites. All rights reserved.</p>
+    </div>
+  </footer>
+
+    </div>
+  </div>
+</div>
+
+  
+  
+    <script>
+         const allRecipes = {
+            starter: [
+                { title: "Spring Rolls", img: "assets/menuimage/spring roll.jpeg", desc: "Crispy and delicious spring rolls." },
+                { title: "Bruschetta", img:"assets/menuimage/bruschetta-on-platter-hero.jpg" , desc: "Grilled bread topped with fresh tomato mix." },
+                { title: "Garlic Bread", img: "assets/menuimage/Stuffed-Garlic-Bread-11.jpg", desc: "Toasted bread with garlic butter." },
+                { title: "Stuffed Mushrooms", img: "assets/menuimage/mushrooms-20main-20image.webp", desc: "Mushrooms filled with cheese and herbs." },
+                { title: "Tomato Soup", img: "assets/menuimage/tomato soup.webp", desc: "Classic homemade tomato soup." },
+                { title: "Paneer Tikka", img: "assets/menuimage/paneer.jpeg", desc: "Grilled paneer cubes with spices." }
+            ],
+            veg: [
+                { title: "Vegetable Stir Fry", img: "assets/menuimage/Vegetable-Stir-Fry-.jpg", desc: "Mixed veggies stir-fried to perfection." },
+                { title: "Aloo Gobi", img: "assets/menuimage/aloo gobi.jpeg", desc: "Potato and cauliflower cooked with spices." },
+                { title: "Chana Masala", img: "assets/menuimage/chana masala.jpeg", desc: "Spiced chickpea curry." },
+                { title: "Palak Paneer", img: "assets/menuimage/palak paneer.jpg", desc: "Spinach and paneer curry." },
+                { title: "Dal Tadka", img: "assets/menuimage/daal tadka.webp", desc: "Lentils cooked with aromatic spices." },
+                { title: "Bhindi Masala", img: "assets/menuimage/bhindi masala.jpg", desc: "Spiced okra curry." }
+            ],
+            nonveg: [
+                { title: "Grilled Chicken", img: "assets/menuimage/grilled chicken.jpg", desc: "Juicy grilled chicken with herbs." },
+                { title: "Butter Chicken", img: "assets/menuimage/Butter-chicken-Popcorn-.webp", desc: "Creamy tomato-based chicken curry." },
+                { title: "Chicken Biryani", img: "assets/menuimage/biryani.jpg", desc: "Aromatic rice and chicken dish." },
+                { title: "Mutton Curry", img: "assets/menuimage/mutton curry.jpeg", desc: "Slow-cooked mutton in spices." },
+                { title: "Tandoori Chicken", img: "assets/menuimage/tandoori chicken.jpg", desc: "Spicy roasted chicken." },
+                { title: "Egg Curry", img: "assets/menuimage/Egg Curry.jpeg ", desc: "Boiled eggs in rich curry sauce." }
+            ],
+            seafood: [
+                { title: "Fish Tikka", img: "assets/menuimage/fish tikka.webp", desc: "Spicy marinated fish grilled to perfection." },
+                { title: "Prawn Curry", img: "assets/menuimage/Prown Curry.jpeg", desc: "Spicy and tangy prawn curry." },
+                { title: "Crab Masala", img: "assets/menuimage/Crab Masala.jpeg", desc: "Crab cooked in aromatic spices." },
+                { title: "Grilled Salmon", img: "assets/menuimage/Grilled Salmon.jpeg", desc: "Perfectly grilled salmon with herbs." },
+                { title: "Fish Fry", img: "assets/menuimage/Fish Fry.jpeg", desc: "Crispy fried fish with spices." },
+                { title: "Lobster Bisque", img: "assets/menuimage/Lobster Besque.jpeg", desc: "Creamy and flavorful lobster soup." }
+            ],
+            dessert: [
+                { title: "cheesecake", img: "assets/menuimage/cheesecake.webp", desc: "Spicy marinated fish grilled to perfection." },
+                { title: "Lava-Cake", img: "assets/menuimage/Lava-Cake-1200x720.jpg", desc: "Spicy and tangy prawn curry." },
+                { title: "Gajar", img: "assets/menuimage/gajar.jpeg", desc: "Crab cooked in aromatic spices." },
+                { title: "pudding", img: "assets/menuimage/pudding.webp", desc: "Perfectly grilled salmon with herbs." },
+                { title: "Tiramisuy", img: "assets/menuimage/tiramisu.jpeg", desc: "Crispy fried fish with spices." },
+                { title: "Chocolate cake", img: "assets/menuimage/chocolate cake.jpg", desc: "Creamy and flavorful lobster soup." }
+            ],
+            drinks: [
+                { title: "Coca Cola", img: "assets/menuimage/cola.jpg", desc: "Spicy marinated fish grilled to perfection." },
+                { title: "Aam panna", img: "assets/menuimage/aam panna.jpg", desc: "Spicy and tangy prawn curry." },
+                { title: "Lassi", img: "assets/menuimage/lassi.webp", desc: "Crab cooked in aromatic spices." },
+                { title: "Fruit Punch", img: "assets/menuimage/fruit punch.jpg", desc: "Perfectly grilled salmon with herbs." },
+                { title: "Apple cider mojito", img: "assets/menuimage/apple cider mojito.jpeg", desc: "Crispy fried fish with spices." },
+                { title: "Lemon Lime", img: "assets/menuimage/lemon lime.webp", desc: "Creamy and flavorful lobster soup." }
+            ]
+        };
+
+        async function fetchRecipes() {
+            try {
+                const response = await fetch('recipes.json');
+                allRecipes = await response.json();
+            } catch (error) {
+                console.error('Error fetching recipes:', error);
+            }
+        }
+
+        function showCategory(category) {
+            const menuContainer = document.getElementById('menuContainer');
+            menuContainer.innerHTML = "";
+            if (allRecipes[category]) {
+                allRecipes[category].forEach(recipe => {
+                    const card = `
+                        <div class="col-md-4">
+                            <div class="card mb-3" >
+                                <img src="${recipe.img}" alt="${recipe.title}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${recipe.title}</h5>
+                                    <p class="card-text">${recipe.desc}</p>
+                                </div>
+                            </div>
+                        </div>`;
+                    menuContainer.innerHTML += card;
+                });
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const searchValue = this.value.toLowerCase();
+            const menuContainer = document.getElementById('menuContainer');
+            menuContainer.innerHTML = "";
+            Object.values(allRecipes).forEach(category => {
+                category.forEach(recipe => {
+                    if (recipe.title.toLowerCase().includes(searchValue)) {
+                        const card = `
+                            <div class="col-md-4">
+                                <div class="card mb-3">
+                                    <img src="${recipe.img}" alt="${recipe.title}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${recipe.title}</h5>
+                                        <p class="card-text">${recipe.desc}</p>
+                                    </div>
+                                </div>
+                            </div>`;
+                        menuContainer.innerHTML += card;
+                    }
+                });
+            });
+        });
+
+        fetchRecipes();
+// share recipe
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const recipeForm = document.getElementById("recipeForm");
+    const recipeContainer = document.getElementById("recipeContainer");
+
+    recipeForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Get input values
+        const title = document.getElementById("recipeTitle").value;
+        const description = document.getElementById("recipeDesc").value;
+        const imageUrl = document.getElementById("recipeImage").value;
+
+        // Create recipe card
+        const recipeCard = document.createElement("div");
+        recipeCard.classList.add("card");
+        recipeCard.innerHTML = `
+            <img src="${imageUrl}" alt="${title}">
+            <div class="card-body">
+                <h3 class="card-title">${title}</h3>
+                <p class="card-text">${description}</p>
+                <button class="delete-btn">Delete</button>
+            </div>
+        `;
+
+        // Add delete functionality
+        recipeCard.querySelector(".delete-btn").addEventListener("click", () => {
+            recipeCard.remove();
+        });
+
+        // Append to container
+        recipeContainer.appendChild(recipeCard);
+
+        // Clear form
+        recipeForm.reset();
+    });
+});
+//  flip card
+function flipCard(card) {
+    card.classList.toggle("flipped");
+}
+
+function wishlist(heart) {
+    heart.classList.toggle("fa-solid");
+    heart.classList.toggle("fa-regular");
+}
+
+
+
+
+
+
+
+////////////modal
+function openModal(title, img, description) {
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalImg').src = `./Asset/Images/${img}`;
+    document.getElementById('modalDescription').innerText = description;
+    document.getElementById('recipeModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('recipeModal').style.display = 'none';
+}
+
+
+
+function openFullRecipe(card, title, imgSrc, description) {
+    card.classList.add('flipped');
+    setTimeout(() => {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-img').src = imgSrc;
+        document.getElementById('modal-content-text').innerText = description;
+        document.getElementById('modal').style.display = 'flex';
+        card.classList.remove('flipped');
+    }, 600);
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+
+// navbar click
+
+function toggleMenu() {
+  document.querySelector(".nav-links").classList.toggle("active");
+}
+window.addEventListener("resize", function() {
+  if (window.innerWidth <= 768) {
+      document.querySelector(".logo-container").style.justifyContent = "flex-start";
+  } else {
+      document.querySelector(".logo-container").style.justifyContent = "center";
+  }
+});
+// navbar end
+
+// Navbar Avatar 
+const navbar = document.querySelector(".navbar");
+
+
+const avatarContainer = document.createElement("div");
+avatarContainer.id = "user-avatar";
+avatarContainer.style.cursor = "pointer";
+// avatarContainer.style.background = "#ff9800";
+avatarContainer.style.background = "#ffe604fb";
+avatarContainer.style.color = "rgb(28, 78, 8)";
+avatarContainer.style.width = "40px";
+avatarContainer.style.height = "40px";
+avatarContainer.style.display = "flex";
+avatarContainer.style.alignItems = "center";
+avatarContainer.style.justifyContent = "center";
+avatarContainer.style.borderRadius = "50%";
+
+
+const navbarRight = document.createElement("div");
+navbarRight.classList.add("navbar-right");
+
+navbarRight.appendChild(document.querySelector(".hamburger"));
+navbarRight.appendChild(avatarContainer);
+
+navbar.appendChild(navbarRight);
+//  Authentication 
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        const email = user.email;
+        const firstLetter = email.charAt(0).toUpperCase();
+        avatarContainer.textContent = firstLetter;
+        avatarContainer.addEventListener("click", () => {
+            window.location.href = "profile.html";
+        });
+    } else {
+        avatarContainer.style.display = "none";
+    }
+});
+
+
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="./assets/js/app.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

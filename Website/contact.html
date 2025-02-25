@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+       <!-- font family one -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+  <!-- two-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <!-- three -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+   <!-- four -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+   <!-- five -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+/* ///navbarrr start*/
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  position: sticky; 
+  top: 0; 
+  width: 100%;
+  z-index: 999;  
+  box-shadow: 0 2px 10px rgba(164, 230, 104, 0.349); 
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+.logo {
+  width: 55px;
+  height: auto;
+}
+.site-name {
+  color: rgb(46, 151, 46);
+  font-size: 20px;
+  margin: 0;
+  font-family: "Protest Revolution", sans-serif;
+}
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 50px;
+  margin-top: 10px; 
+  font-family: "Chakra Petch", sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+.nav-links li {
+  position: relative;
+  padding-bottom: 0.1px; 
+}
+.nav-links li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #28a03c;  
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out; 
+}
+.nav-links li:hover::after {
+  transform: scaleX(1);
+}
+.nav-links a {
+  font-size: 14px;
+  padding: 5px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  transition: color 0.3s ease-in-out;
+}
+.navbar-right {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+#user-avatar {
+  cursor: pointer;
+  background: #ff9800;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.hamburger span {
+  background: rgb(63, 160, 79);
+  height: 3px;
+  width: 25px;
+  margin: 4px;
+  display: block;
+}
+/*Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.911);
+      backdrop-filter: blur(2px);
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: transform 0.5s ease-in-out, opacity 0.5s;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.507);
+  }
+  .nav-links.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+  }
+  .hamburger {
+      display: flex;
+  }
+}
+/* navbar ennnnnnnnd */
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 10%;
+    gap: 20px;
+    background-color: #fff;
+}
+
+.contact-info {
+    width: 45%;
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+}
+
+.contact-info div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.contact-info div img {
+    width: 40px;
+    margin-right: 20px;
+}
+
+.contact-info div h3 {
+    margin: 0;
+    color: #333;
+    font-size: 22px;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+.contact-info div p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 16px;
+}
+
+.contact-form {
+    width: 50%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    text-align: center;
+    font-size: 38px;
+  
+    margin-bottom: 20px;
+    color:  #272727;
+    font-family: "Protest Revolution", sans-serif; 
+      
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #28a03c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.contact-form button:hover {
+    background-color: #1f7b2b;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 30px 5%;
+        gap: 30px;
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .contact-info {
+        font-size: 16px;
+    }
+
+    .contact-info div {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .contact-info div img {
+        width: 30px;
+        margin-right: 15px;
+    }
+
+    .contact-info div h3 {
+        font-size: 18px;
+    }
+
+    .contact-info div p {
+        font-size: 14px;
+        
+    }
+
+    .contact-form h2 {
+   
+  color:  #41856e;
+        font-size: 28px;
+   font-family: "Protest Revolution", sans-serif; 
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+    }
+
+    .contact-form button {
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+    .contact-container {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .contact-info div img {
+        width: 25px;
+        margin-right: 10px;
+    }
+
+    .contact-info div h3 {
+        font-size: 16px;
+    }
+
+    .contact-info div p {
+        font-size: 13px;
+    }
+
+    .contact-form h2 {
+        font-size: 24px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+    }
+
+    .contact-form button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+       /* Footer Styles */
+.footer {
+    background-color: #ffffff;
+    color: #277045;
+    padding: 40px 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-top: 5px solid #277045;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .footer-logo {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .logo-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .logo-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #277045;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .logo-title {
+    font-family: "Protest Revolution", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #277045;
+  }
+  
+  .logo-description {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  /* Quick Links */
+  .footer-links {
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+  }
+  
+  .footer-heading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #277045;
+  }
+  
+  .links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .links-list li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .links-list i {
+    font-size: 16px;
+  }
+  
+  .links-list a {
+    color: #277045;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .links-list a:hover {
+    color: rgb(0, 139, 19);
+    transform: scale(1.1);
+  }
+  
+
+  .footer-contact {
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+    color: #555;
+    line-height: 1.8;
+  }
+  
+  .footer-contact i {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .footer-contact strong {
+    color: #277045;
+  }
+
+  .footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .logo-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .logo-text {
+      text-align: center;
+    }
+  }
+/* footer end */
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="assets/images/logoo.png" alt="Spicy Bite Logo" class="logo">
+            <h1 class="site-name">SPICY BITE</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="starthere.html">Start Here</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav> 
+
+    <!-- Contact Section -->
+    <section class="contact-container">
+        <!-- Left  -->
+        <div class="contact-info">
+            <div>
+                <img src="assets/images/locationicon.png" alt="Location Icon">
+                <div>
+                    <h3>Location</h3>
+                    <p>123 Spicy Bite Street, Food City</p>
+                </div>
+            </div>
+            <div>
+                <img src="assets/images/phoneicon.jpg" alt="Phone Icon">
+                <div>
+                    <h3>Phone</h3>
+                    <p>+123-456-7890</p>
+                </div>
+            </div>
+            <div>
+                <img src="assets/images/houricon.png" alt="Hours Icon">
+                <div>
+                    <h3>Hours</h3>
+                    <p>Mon-Fri: 9am - 9pm</p>
+                    <p>Sat-Sun: 10am - 10pm</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right  -->
+        <div class="contact-form">
+            <h2>Contact Form</h2>
+            <form action="#" method="post">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Comment or Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <div class="logo-content">
+          <img src="assets/images/logoo.png" alt="Logo" class="logo-img">
+          <div class="logo-text">
+            <h2 class="logo-title">Spicy Bites</h2>
+            <p class="logo-description">
+              Welcome to our website. Connecting people with the best services in town. Follow us for updates!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="links-list">
+          <li><i class="fa fa-home"></i> <a href="#">Home</a></li>
+          <li><i class="fa fa-info-circle"></i> <a href="#">About</a></li>
+          <li><i class="fa fa-cogs"></i> <a href="#">Services</a></li>
+          <li><i class="fa fa-envelope"></i> <a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3 class="footer-heading">Contact Us</h3>
+        <p>
+          <i class="fa fa-envelope"></i> <strong>Email:</strong> info@example.com<br>
+          <i class="fa fa-phone"></i> <strong>Phone:</strong> +123 456 7890<br>
+          <i class="fa fa-map-marker"></i> <strong>Address:</strong> 123 Green Lane, City
+        </p>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Spicy Bites. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- footer end -->
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+        
+// navbar click
+function toggleMenu() {
+  document.querySelector(".nav-links").classList.toggle("active");
+}
+window.addEventListener("resize", function() {
+  if (window.innerWidth <= 768) {
+      document.querySelector(".logo-container").style.justifyContent = "flex-start";
+  } else {
+      document.querySelector(".logo-container").style.justifyContent = "center";
+  }
+});
+
+// Navbar Avatar 
+const navbar = document.querySelector(".navbar");
+const avatarContainer = document.createElement("div");
+avatarContainer.id = "user-avatar";
+avatarContainer.style.cursor = "pointer";
+// avatarContainer.style.background = "#ff9800";
+avatarContainer.style.background = "#ffe604fb";
+avatarContainer.style.color = "rgb(28, 78, 8)";
+avatarContainer.style.width = "40px";
+avatarContainer.style.height = "40px";
+avatarContainer.style.display = "flex";
+avatarContainer.style.alignItems = "center";
+avatarContainer.style.justifyContent = "center";
+avatarContainer.style.borderRadius = "50%";
+
+
+const navbarRight = document.createElement("div");
+navbarRight.classList.add("navbar-right");
+
+navbarRight.appendChild(document.querySelector(".hamburger"));
+navbarRight.appendChild(avatarContainer);
+
+navbar.appendChild(navbarRight);
+//  Authentication 
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        const email = user.email;
+        const firstLetter = email.charAt(0).toUpperCase();
+        avatarContainer.textContent = firstLetter;
+        avatarContainer.addEventListener("click", () => {
+            window.location.href = "profile.html";
+        });
+    } else {
+        avatarContainer.style.display = "none";
+    }
+});
+    </script>
+    
+<script type="module" src="firebase.js"></script>
+<script type="module" src="script.js"></script>
+</body>
+</html>
