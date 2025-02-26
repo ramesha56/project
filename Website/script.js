@@ -161,7 +161,7 @@ document.querySelector("#login-form").addEventListener("submit", async function 
     try {
         await signInWithEmailAndPassword(auth, email, password);
         showToast("Login Successful!", "success");
-        window.location.replace('/Website/profile.html');
+        window.location.replace('Website/profile.html');
     } catch (error) {
         showToast(error.message, "error");
     }
