@@ -286,7 +286,7 @@ font-family: "Protest Revolution", sans-serif;
                 }
             } else {
                 // Redirect to home page if not logged in
-                window.location.href = 'index.html';
+                window.location.href = '../index.html';
             }
         });
 
@@ -294,7 +294,7 @@ font-family: "Protest Revolution", sans-serif;
         logoutBtn.addEventListener("click", async () => {
             try {
                 await signOut(auth);
-                window.location.href = 'index.html';
+                window.location.href = '/';
             } catch (error) {
                 console.log("Error signing out:", error.message);
             }
