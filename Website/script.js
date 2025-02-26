@@ -37,7 +37,7 @@ onAuthStateChanged(auth, async (user) => {
         avatarContainer.textContent = firstLetter;
         avatarContainer.addEventListener("click", () => {
            //  window.location.href = "/profile.html";
-            window.location.replace('/Website/profile.html')
+            window.location.replace('Website/profile.html')
         });
     } else {
         avatarContainer.style.display = "none";
