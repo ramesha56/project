@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Star-Here</title>
- 
+  <link rel="shortcut icon" href="./assets/images/logoo.png" type="image/x-icon">
 
   <!-- font family one -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +54,7 @@
       <li><a href="starthere.html">Start Here</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="profile.html">profile</a></li>
+      <li><a href="./wishlist.html">Wishlist</a></li>
   </ul>
   <div class="hamburger" onclick="toggleMenu()">
       <span></span>
@@ -65,9 +66,6 @@
   <!-- navbar end-->
  
 
-  <div class="half-div">
-    Simple recipes made for <span> real, actual, everyday life </span>
-</div>
 
 
     <!-- section one -->
@@ -232,8 +230,9 @@
 </footer>
 
 
+
 <!-- Modal -->
-<div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal  fade" id="recipeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -241,7 +240,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img id="image" src="" alt="" class="img-fluid" >
+        <img id="image" src="" alt="" class="img-fluid " >
        
         <h3 class="my-2">ingredients</h3>
        <ul id="ingredients">
@@ -251,7 +250,7 @@
        </ol>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary view-recipe-close-btn" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="closeModal" class="btn btn-secondary view-recipe-close-btn" data-bs-dismiss="modal">Close</button>
 
       </div>
     </div>
@@ -304,7 +303,7 @@ onAuthStateChanged(auth, async (user) => {
         const firstLetter = email.charAt(0).toUpperCase();
         avatarContainer.textContent = firstLetter;
         avatarContainer.addEventListener("click", () => {
-            window.location.href = "profile.html";
+            window.location.href = "./profile.html";
         });
     } else {
         avatarContainer.style.display = "none";

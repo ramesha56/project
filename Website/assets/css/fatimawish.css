@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #e7ffd1 !important;
+}
+
+.card:hover{
+    box-shadow: rgba(11, 170, 0, 0.845) 0px 3px 8px;
+}
+
+.card{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 0.7em;
+}
+
+.head-wish{
+    margin-top: 0.7em;
+    text-align: center;
+   color: #2b462e;
+   color: #c42a2a;
+   font-family: "Protest Revolution", sans-serif;
+}
+
+
+.btn-success{
+    background: linear-gradient(90deg, #b3ff00 ,#277045 );
+    border: none;
+    color: black;
+    width: 80%;
+}
+
+.btn-success:hover{
+    color: rgb(255, 255, 255);
+}
+
+
+.btn-danger{
+    background-color: #ffffff !important;
+    border: none;
+}
+
+.btn-danger i{
+    color: red;
+}
+
+
+.view-recipe-close-btn{
+    background: linear-gradient(90deg, #b3ff00 ,#277045 );
+    color: black;
+  }
+
+
+  .view-recipe-close-btn:hover{
+    color: rgb(255, 255, 255);
+  }
+.no-recipes{
+    width: 1100px;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-top: 1em;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
+}
+
+
+/* navbar */
+.navbar{
+    background-color: rgb(255, 255, 255) !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    position: fixed;
+    top: 0;
+    right: 0%;
+    left: 0%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: #3c2c29;
+    font-weight: bolder;
+    font-family: "Anton", serif;
+    font-family: "Black Ops One", serif;
+}
+.navbar-brand img{
+    height: 40px;
+    width: 90px; 
+    
+}
+
+.navbar-nav{
+    gap: 2em;
+    font-weight: 600;
+}
+
+.nav-item:hover{
+   color: rgb(22, 192, 22) !important;
+}
+
+.heart-nav{
+    color: #c42a2a !important;
+}
+
+
+@media (max-width:1030px){
+    .no-recipes{
+        width: 100%;
+        margin: 0 auto;
+    }
+}

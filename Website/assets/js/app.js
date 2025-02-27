@@ -1,66 +1,66 @@
 // API URL
-let apiUrl = 'https://dummyjson.com/recipes';
-
+ let apiUrl = "https://dummyjson.com/recipes";
 
 let mainContainer = document.getElementById("recipes");
 let paginationContainer = document.getElementById("pagination");
 let searchInput = document.getElementById("startSearch");
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-let recipesData = '';
+let recipesData = [];
 
-// Fetch API and data
-let fetchApi = async () => {
+// Fetch API data
+async function fetchApi() {
     try {
         if (recipesData.length > 0) return recipesData;
         let response = await fetch(apiUrl);
         let fetchData = await response.json();
+        console.log(fetchData);
+        
         recipesData = fetchData.recipes.slice(0, 30);
         return recipesData;
     } catch (error) {
-        console.error('Error fetching API: ', error);
+        console.error("Error fetching API: ", error);
     }
-};
+}
 
-
-//displaying recipes
-
+// Display Recipes
 let recipePerPage = 9;
+let currentPage = 1;
 
-let displayRecipes = (data, page ) => {
+function displayRecipes(data, page) {
     mainContainer.innerHTML = "";
 
     let start = (page - 1) * recipePerPage;
     let end = start + recipePerPage;
     let recipesToShow = data.slice(start, end);
 
-    recipesToShow.forEach(recipe => {
+    recipesToShow.forEach((recipe) => {
         let card = document.createElement("div");
-        card.className = 'card';
+        card.className = "card";
+
+        let isInWishlist = wishlist.includes(recipe.id);
+        let heartClass = isInWishlist ? "fa-solid fa-heart active" : "fa-regular fa-heart";
+
         card.innerHTML = `
             <img src="${recipe.image}" class="card-img" alt="${recipe.name}">
-             <div class="card-body">
-               <div class="title-id">
-                 <h4 id="title">${recipe.name}</h4>
-                 <i class="fa-regular fa-heart" id="heart" onclick="wishlist(this)"></i> 
-               </div>
-               <div class="title-id">
-                  <div id="price">${recipe.difficulty}</div>
-                  <div id="id">  ${recipe.rating}  </div>    
-              </div>
-              <button onclick="viewDetails(${recipe.id})" type="button" class="btn btn-success view-recipe-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                 View full Details
-              </button>
-           </div>
+            <div class="card-body">
+                <div class="title-id">
+                    <h6 class="title" >${recipe.name}</h6>
+                    <i class="${heartClass}" onclick="toggleWishlist(${recipe.id}, this)"></i> 
+                </div>
+                <div class="title-id">
+                    <div id="id">${recipe.difficulty}</div>
+                 <div id="difficulty">${recipe.mealType[0]}</div> 
+                </div>
+                <button onclick="viewDetails(${recipe.id})" class="btn btn-success view-recipe-btn">View Details <i class="fa-solid fa-eye"></i></button>
+            </div>
         `;
         mainContainer.appendChild(card);
     });
-};
+}
 
-//creating pages buttons
-
-let currentPage = 1;
-
-let pageCounter = (totalRecipes) => {
+// Pagination
+function pageCounter(totalRecipes) {
     paginationContainer.innerHTML = "";
     let totalPages = Math.ceil(totalRecipes / recipePerPage);
 
@@ -68,81 +68,135 @@ let pageCounter = (totalRecipes) => {
         let btn = document.createElement("button");
         btn.innerText = i;
         btn.disabled = i === currentPage;
-        btn.className = 'pagination-btn';
-        btn.addEventListener('click', () => {
+        btn.className = "pagination-btn";
+        btn.addEventListener("click", () => {
             currentPage = i;
             updatePage();
         });
         paginationContainer.appendChild(btn);
     }
-};
+}
 
+// View Recipe Details Modal
+async function viewDetails(recipeId) {
+    let recipes = await fetchApi();
+    let recipe = recipes.find((resId) => resId.id === recipeId);
 
+    if (!recipe) return;
 
-//filtering recipes and updating page
+    document.getElementById("image").src = recipe.image;
+    document.getElementById("title-name").innerText = recipe.name;
 
-let updatePage = async () => {
+    let ingredientsList = recipe.ingredients.map((ing) => `<li>${ing}</li>`).join("");
+    document.getElementById("ingredients").innerHTML = ingredientsList;
+
+    let instructionsList = recipe.instructions.map((ins) => `<li>${ins}</li>`).join("");
+    document.getElementById("instruction").innerHTML = instructionsList;
+
+    let modalElement = document.getElementById("recipeModal");
+    let modal = new bootstrap.Modal(modalElement);
+    modal.show();
+}
+
+// Close Modal Function
+function closeModal() {
+    let modalElement = document.getElementById("recipeModal");
+    let modalInstance = bootstrap.Modal.getInstance(modalElement);
+    if (modalInstance) {
+        modalInstance.hide();
+    }
+}
+
+// Update Page
+async function updatePage() {
     let recipes = await fetchApi();
     let searchValue = searchInput.value.toLowerCase();
 
     let filteredRecipes = searchValue
-        ? recipes.filter(recipe => recipe.name.toLowerCase().includes(searchValue))
+        ? recipes.filter((recipe) => recipe.name.toLowerCase().includes(searchValue))
         : recipes;
 
     displayRecipes(filteredRecipes, currentPage);
     pageCounter(filteredRecipes.length);
-};
+}
 
-
-
-//dynamic search filter
-
+// Search Filter
 searchInput.addEventListener("input", () => {
-    currentPage = 1; //Recipes that includes any value of searched value will be shown to page one
+    currentPage = 1;
     updatePage();
 });
 
-updatePage();
+// Toggle Wishlist Function
+function toggleWishlist(recipeId, element) {
+    let index = wishlist.indexOf(recipeId);
 
-// RECIPE DETAIL MODAL
+    if (index === -1) {
+        wishlist.push(recipeId);
+    } else {
+        wishlist.splice(index, 1);
+    }
 
-const viewDetails = async (recipeId) =>{
-    const response = await fetch("https://dummyjson.com/recipes");
-    const data = await response.json();
-    const recipe = data?.recipes?.find(
-      recipe => recipe.id === parseInt(recipeId)
-    );
-  
-    document.getElementById("image").src = recipe.image
-    document.getElementById("title-name").innerText = recipe.name
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
-            //  ingredients 
-            let ingredientsList = "";
-            recipe.ingredients.forEach((ing) => 
-              ingredientsList += `<li>${ing} </li>`
-            );
-            document.getElementById("ingredients").innerHTML = ingredientsList ;
-            
-            //  ingredients 
-            let instructionsList = "";
-            recipe.instructions.forEach((ins) => 
-              instructionsList += `<li>${ins} </li>`
-            );
-            document.getElementById("instruction").innerHTML = instructionsList ;
-  
-  }
-  
-// 
-
-
-//heart function
-function wishlist(element){
-  element.classList.toggle("active")
-  element.classList.toggle("fa-solid")
-  element.classList.toggle("fa-regular")
-
+    element.classList.toggle("fa-solid");
+    element.classList.toggle("fa-regular");
+    element.classList.toggle("active");
 }
 
+// Display Wishlist Recipes
+async function displayWishlist() {
+    let recipes = await fetchApi();
+    let wishlistData = JSON.parse(localStorage.getItem("wishlist")) || [];
+    let filteredRecipes = recipes.filter((recipe) => wishlistData.includes(recipe.id));
+
+    let wishlistContainer = document.getElementById("wishlist-recipes");
+    wishlistContainer.innerHTML = "";
+
+    if (filteredRecipes.length === 0) {
+        wishlistContainer.innerHTML = "<p class='no-recipes'>No recipes in wishlist.</p>";
+        return;
+    }
+
+    filteredRecipes.forEach((recipe) => {
+        let card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+            <img src="${recipe.image}" class="card-img" alt="${recipe.name}">
+            <div class="card-body">
+                <h6 class="title" >${recipe.name}</h6>
+                <p id="id">Difficulty: ${recipe.difficulty}</p>
+                <button onclick="viewDetails(${recipe.id})" class="btn btn-success">View Details  <i class="fa-solid fa-eye"></i></button>
+                <button onclick="removeFromWishlist(${recipe.id})" class="btn btn-danger"><i class="fa-solid fa-heart"></i></button>
+            </div>
+        `;
+        wishlistContainer.appendChild(card);
+    });
+}
+
+// Remove from Wishlist
+function removeFromWishlist(recipeId) {
+    wishlist = wishlist.filter(id => id !== recipeId);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    displayWishlist();
+}
+
+// Fix Modal Backdrop & Scroll Issue
+document.addEventListener("DOMContentLoaded", function () {
+    let modal = document.getElementById("recipeModal");
+
+    modal.addEventListener("hidden.bs.modal", function () {
+        let modalBackdrop = document.querySelector(".modal-backdrop");
+        if (modalBackdrop) {
+            modalBackdrop.remove();
+        }
+        document.body.classList.remove("modal-open");
+        document.body.style.overflow = "auto";
+        document.body.style.paddingRight = "";
+    });
+});
+
+// Load Initial Data
+updatePage();
 
 // Array of Chef's Tricks & Tips
 const tipsTricks = [
@@ -246,7 +300,7 @@ let shuffledTips = shuffleArray(tipsTricks);
 
 let selectedTips = shuffledTips.slice(0, 3);
 
-console.log(selectedTips); 
+// console.log(selectedTips); 
     
 selectedTips.forEach(tip => {
         let tipCard = document.createElement("div");
@@ -266,11 +320,4 @@ displayRandomTips();
 
 
 
-// window.onload = displayRandomTips;
 
-
-
-  
-  
- 
-  

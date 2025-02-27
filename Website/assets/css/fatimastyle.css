@@ -12,7 +12,7 @@ body {font-family: Arial, sans-serif;}
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
-  padding: 10px 20px;
+  padding: 7px 20px;
   position: sticky; 
   top: 0; 
   width: 100%;
@@ -163,48 +163,94 @@ body {font-family: Arial, sans-serif;}
 
 
 
+
+
+
+
+
+
+
+
+/* fatima code */
+
+
+
 /* section one */
 
 .start-sec-one{
   width: 100%;
   height: auto;
   padding: 0 1.5em ;
-  margin-top: 4em;
   display: flex;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* height: 75vh; */
+  background-color: #e7ffd1;
+  animation: slideIn 2s ease-out;
 
 }
+/* Animations */
+@keyframes fadeIn {
+0% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+}
+
+@keyframes slideIn {
+0% {
+  transform: translateX(-100%);
+}
+100% {
+  transform: translateX(0);
+}
+}
+
 /* slider */
+
 .slide{
   width: 35%;
 }
+
 .slide img{
   height: 500px !important;
 }
+
+
 .discription{
   width: 54%;
   padding: 2em;
   padding-left: 3em;
 }
+
 .wel{
   font-size:2.7em;
-  color:  #41856e;
+  color: #740a0a;
   font-family: "Great Vibes", serif;
 }
+
 
 .let-span{
   font-family: "Chakra Petch", sans-serif;
   color: #b6412d;
 }
+
 .let-span span{
   font-family: "Pacifico", cursive;
- color:  #41856e;
+  color: #bcaaa7;
   font-weight: lighter;
 }
+
 .discription p{
   font-size: 16px;
   color: #645d5d;
 }
+
 /* section two */
+
 .start-sec-two{
   padding: 3em 1em;
   display: flex;
@@ -231,10 +277,10 @@ body {font-family: Arial, sans-serif;}
   justify-content: center;
   align-items: center;
   font-size: 2em;
-  border:  1px solid #139f13 ;
+  /* border:  1px solid #139f13 ; */
   color: #ffffff;
   font-weight: bolder;
-  background-color: rgb(19, 159, 19);
+  background-color: rgb(11, 120, 34);
   background-image: -webkit-linear-gradient(30deg, #ffffff22 50%, transparent 50%);
   background-image: linear-gradient(30deg, #ffffff2c 50%, transparent 50%);
   background-size: 500px;
@@ -295,15 +341,14 @@ background-color: #ff2fd2;
   width: 40px;
   border: none;
   outline: none;
-  background: linear-gradient(90deg,  #b3ff00, #277045); 
-  color: rgb(255, 255, 255);
+  background-color: #ff6600;
+  color: white;
   font-size: 1.3em; 
   cursor: pointer;
 }
 
 .start-btn-go:hover{
-  background: linear-gradient(90deg, #277045, #b3ff00); 
-  color: #277045;
+  background-color: #bc4500;
 }
 
 
@@ -316,14 +361,15 @@ background-color: #ff2fd2;
   align-items: center;
   width: 100%;
   background-color: #27ad20;
-  background: url('../images/bg.avif') no-repeat center center/cover;
   color: white;
+  background: url('../images/bg.avif') no-repeat center center/cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .start-head1{
    font-size:2.7em;
-   font-family: "Protest Revolution", sans-serif; 
-   letter-spacing: 2px;
+  font-family:serif;
   font-style: italic;
  
 }
@@ -367,7 +413,7 @@ background-color: #ff2fd2;
   font-size: 1.5em;
   font-family:serif;
   font-style: italic;
-  color: #ffffff;
+  color: #bcaaa7;
 }
 
 
@@ -397,6 +443,14 @@ padding-bottom: 0;
 
 .wel-video{
 color: #b6412d;
+}
+
+/* footer */
+
+.footer{
+  width: 100%;
+  height: 320px;
+  background-color: #27ad20;
 }
 
 /* modal */
@@ -431,7 +485,7 @@ border:1px solid #000000;
   gap: 20px;
 }
 .card{
-  padding: 15px;
+  /* padding: 15px; */
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #f9f9f9;
@@ -451,29 +505,19 @@ border:1px solid #000000;
   border: none;
   background-color: #6ae657;
   color: white;
+ 
   border-radius: 50%;
   cursor: pointer;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .pagination button:disabled {
-  background-color: rgb(0, 139, 19); 
+  background-color: rgb(132, 212, 2); 
 }
-
-.pagination button:hover{
-  background-image: -webkit-linear-gradient(30deg, #ffffff22 50%, transparent 50%);
-  background-image: linear-gradient(30deg, #ffffff39 50%, transparent 50%);
-  background-size: 500px;
-  background-repeat: no-repeat;
-  background-position: 0%;
-  -webkit-transition: background 300ms ease-in;
-  transition: background 300ms ease-in;
-}
+/* */
 
 .card{
   background-color: rgb(255, 255, 255);
   border-radius: 7px;
-  padding: 0.7em;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin-bottom: 2em;
   transition: all 0.3s ease-out;
 
@@ -488,14 +532,19 @@ transform:scale(1.05) translateZ(0);
 .card-img{
   width: 100%;
   height: 225px;
-  border-radius: 7px;
+  border-radius: 7px 7px  0 0;
   cursor: pointer;
   object-fit: cover;
 }
 
 
+.img-fluid{
+  object-fit: cover !important;
+}
+
 .card-body{
 padding: 0.4em 0;
+padding: 0.9em;
 }
 
 #title{
@@ -519,12 +568,22 @@ padding: 0.4em 0;
 
 
 #id{
-  color: rgb(254, 214, 35);
+  color: rgb(212, 173, 0);
+  font-weight: bolder;
+  font-family: "Chakra Petch", sans-serif;
 }
 
 
+.title{
+  color: rgb(255, 0, 0);
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: bold;
+}
+
 #difficulty{
   color: rgb(255, 0, 0);
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: bolder;
 
 }
 
@@ -541,19 +600,21 @@ padding: 0.4em 0;
 }
 
 .view-recipe-btn{
-  background: linear-gradient(90deg, #b3ff00 ,#277045 );
-  color: rgb(26, 61, 18);
+  background-color: rgb(119, 179, 127);  
+  color: rgb(0, 0, 0);
   font-weight: 500;
   margin: 0.5em 0;
   width: 100%;
   border-radius: 3px;
   padding: 0.3em;
-  border: none;
+  border: none; 
+   background: linear-gradient(90deg, #b3ff00 ,#277045 );
 }
 
+
+
 .view-recipe-close-btn{
-  background-color: rgb(0, 139, 19);  
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-weight: 500;
   margin: 0.5em 0;
   width: 140px;
@@ -561,8 +622,12 @@ padding: 0.4em 0;
   padding: 0.3em;
   border: none;
   margin: 0 auto;
+  background: linear-gradient(90deg, #b3ff00 ,#277045 );
 }
 
+.view-recipe-close-btn:hover{
+  color: rgb(255, 255, 255);
+}
 
 
 
@@ -583,6 +648,16 @@ gap: 2em;
 padding: 1em;
 max-width: 1200px;
 margin: 0 auto;
+}
+
+.fa-heart {
+cursor: pointer;
+font-size: 24px;
+transition: color 0.3s ease;
+}
+
+.fa-heart.active {
+color: red;
 }
 
 .tip-card {
@@ -783,11 +858,7 @@ display: inline-block;
 width: 205px;
 }
 
-.half-div{
-  margin-top: 2em;
-  border: none;
-  font-size: 1em;
-}
+
 
 }
 
@@ -843,6 +914,23 @@ padding: 0.1em;
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Footer Styles */
