@@ -804,18 +804,26 @@ h1 {
           }
       }
 
+/* add rec */
 /* Container Layout */
 .container {
-  background-color: #dcf5de;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 2rem;
   padding: 2rem;
-  justify-content: center;
-  align-items: flex-start;
+  background-color: #dcf5de;
+  flex-wrap: wrap;
 }
 
-/* Recipe Form Container */
+/* Side Images */
+.side-image img {
+  max-width: 200px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Recipe Form */
 .recipe-form-container {
   flex: 1 1 350px;
   max-width: 400px;
@@ -825,7 +833,6 @@ h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Recipe Form Inputs */
 .recipe-form label {
   display: block;
   margin-bottom: 0.5rem;
@@ -840,9 +847,16 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-/* Submit Button */
+.recipe-form input:focus,
+.recipe-form textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
 .submit-btn {
   width: 100%;
   padding: 0.75rem;
@@ -859,223 +873,157 @@ h1 {
   background-color: #45a049;
 }
 
-Recipe Cards Container
-.recipe-container {
-  flex: 2 1 600px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-} */
-
-/* Recipe Card Styling */
-.recipe-card {
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  text-align: center;
-} 
-
- .recipe-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-} 
-
- .recipe-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.recipe-card p {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Toast Notification */
-.toast {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  animation: fadeInOut 4s;
-}
-
-@keyframes fadeInOut {
-  0% {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  20%,
-  80% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-  100% {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-}
-
-/* Responsive Fix */
+/* Responsive Design */
 @media (max-width: 768px) {
   .container {
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
   }
-
+  .side-image img {
+      max-width: 100px;
+  }
   .recipe-form-container {
       width: 100%;
       max-width: 90%;
   }
-
-  .recipe-container {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      width: 100%;
-  }
 }
-  
 
 
-
-/* follow us*/
-
-/* Main container styling */
-.start-sec-two {
-  padding: 3em 1em;
+/* Review Section */
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+.review-box {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2em;
-  background-color: rgb(255, 255, 255);
-  justify-content: center;
-  width: 100%;
-  text-align: center;
-}
-
-/* Icon container */
-.icon-div {
-  display: flex;
-  justify-content: center;
-  width: 100%;
   align-items: center;
-  font-family: "Chakra Petch", sans-serif;
-  gap: 1em;
-  flex-wrap: wrap;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .icon-div {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 768px) {
-  .icon-div {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 480px) {
-  .icon-div {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-  .start-sec-two {
-    padding: 2em 0.5em;
-  }
-}
-
-/* Icon styling */
-.icon1 {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 2em;
-  border: 1px solid #139f13;
-  color: #ffffff;
-  font-weight: bolder;
-  background-color: rgb(19, 159, 19);
-  background-image: linear-gradient(30deg, #ffffff2c 50%, transparent 50%);
-  background-size: 500px;
-  background-repeat: no-repeat;
-  background-position: 0%;
-  transition: background 300ms ease-in;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(125, 238, 59, 0.644);
 }
+.review-image img {
+  max-width: 100%;
 
-.icon1:hover {
-  border: none;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  background-position: 100%;
-  color: #c266d3;
+  width: 250px;
+  border-radius: 12px;
 }
-
-/* Social media hover effects */
-.start-insta:hover {
-  background-color: #ff2fd2;
-  color: white;
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
 }
-
-.pin:hover {
-  color: white;
-  background-color: #ff0000;
-}
-
-.twitt:hover {
-  color: white;
-  background-color: #49a8fa;
-}
-
-.face:hover {
-  color: white;
-  background-color: #3083ff;
-}
-
-/* Input field */
-.start-input {
-  width: 200px;
-  height: 35px;
-  text-indent: 12px;
-}
-
-/* Signup button */
-.start-signup {
+.review-form h2 {
   text-align: center;
+  color: #333;
 }
-
-/* Submit button */
-.start-btn-go {
-  height: 35px;
-  width: 40px;
-  border: none;
+.review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
   outline: none;
-  background: linear-gradient(90deg, #b3ff00, #277045);
-  color: rgb(255, 255, 255);
-  font-size: 1.3em;
+}
+
+.review-form input:focus,
+.review-form textarea:focus {
+  border-color: #17440b;
+  box-shadow: 0 0 5px rgba(64, 105, 10, 0.5);
+}
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
   cursor: pointer;
 }
-
-.start-btn-go:hover {
-  background: linear-gradient(90deg, #277045, #b3ff00);
-  color: #277045;
+.star {
+  font-size: 24px;
+  transition: 0.3s;
+}
+.star:hover,
+.star.selected {
+  color: gold;
+  transform: scale(1.2);
+}
+#submit-review {
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #d9ff00, #277045);
+  color: rgb(33, 65, 40);
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+#submit-review:hover {
+  background: linear-gradient(90deg,#277045 , #d9ff00);
+  transform: scale(1.05);
+}
+.submitted-reviews {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+.submitted-reviews h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+#reviews-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.review-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 10px rgba(125, 238, 59, 0.644);
+}
+.review-item h3, 
+.review-item p, 
+.review-item .review-stars {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .review-box {
+      flex-direction: column;
+      text-align: center;
+  }
+  .review-form {
+      max-width: 100%;
+  }
+  .review-item {
+      flex-direction: column;
+      text-align: center;
+      padding: 15px;
+  }
+  .review-item h3, .review-item p, .review-stars {
+      text-align: center;
+  }
 }
 
+/* footer start */
 .footer {
   background-color: #ffffff;
   color: #277045;

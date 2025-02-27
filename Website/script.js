@@ -12,6 +12,8 @@ avatarContainer.style.cursor = "pointer";
 // avatarContainer.style.background = "#ff9800";
 avatarContainer.style.background = "#ffe604fb";
 avatarContainer.style.color = "rgb(28, 78, 8)";
+avatarContainer.style.border = "3px solid rgb(28, 78, 8)";
+
 avatarContainer.style.width = "40px";
 avatarContainer.style.height = "40px";
 avatarContainer.style.display = "flex";
@@ -258,6 +260,43 @@ function saveRecipe(title, description, image) {
     toast.style.display = "block";
     setTimeout(() => { toast.style.display = "none"; }, 3000);
 }
+// add review 
+document.addEventListener("DOMContentLoaded", function() {
+    let selectedStars = 0;
+    
+    document.querySelectorAll(".star").forEach(star => {
+        star.addEventListener("click", function() {
+            selectedStars = this.getAttribute("data-value");
+            document.querySelectorAll(".star").forEach(s => s.classList.remove("selected"));
+            for (let i = 0; i < selectedStars; i++) {
+                document.querySelectorAll(".star")[i].classList.add("selected");
+            }
+        });
+    });
 
-
+    document.getElementById("submit-review").addEventListener("click", function() {
+        let name = document.getElementById("reviewer-name").value;
+        let email = document.getElementById("reviewer-email").value;
+        let review = document.getElementById("review-text").value;
+        
+        if (!name || !email || !review || selectedStars === 0) {
+            alert("Please fill all fields and select a star rating.");
+            return;
+        }
+        
+        let reviewHTML = `<div class='review-item'>
+                            <h3>${name}</h3>
+                            <p>${email}</p>
+                            <p>${review}</p>
+                            <div class='review-stars'>${'&#9733;'.repeat(selectedStars)}</div>
+                         </div>`;
+        
+        document.getElementById("reviews-list").innerHTML += reviewHTML;
+        document.getElementById("reviewer-name").value = "";
+        document.getElementById("reviewer-email").value = "";
+        document.getElementById("review-text").value = "";
+        document.querySelectorAll(".star").forEach(s => s.classList.remove("selected"));
+        selectedStars = 0;
+    });
+});
 

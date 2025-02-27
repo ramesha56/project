@@ -4,23 +4,22 @@ import { collection, getDocs, deleteDoc, doc } from "https://www.gstatic.com/fir
 
 // Load user data on page load
 document.addEventListener("DOMContentLoaded", function () {
-    loadUsers();  // Load users from Firestore
-    loadRecipes();  // Load recipes from localStorage
+    loadUsers();  
+    loadRecipes();
 });
 
 // Function to fetch users from Firestore and display them in the user details table
 async function loadUsers() {
-    const tableBody = document.querySelector("#user-table tbody"); // Correct selector for user table
-    tableBody.innerHTML = ""; // Clear previous data
-
+    const tableBody = document.querySelector("#user-table tbody"); 
+    tableBody.innerHTML = ""; 
     try {
         // Fetching users from Firestore collection
         const querySnapshot = await getDocs(collection(db, "users"));
-        console.log("Fetched users:", querySnapshot.size); // Log how many users are fetched
+        console.log("Fetched users:", querySnapshot.size);
 
         querySnapshot.forEach((doc) => {
-            const userData = doc.data();  // Get data from each document
-            console.log("User data:", userData); // Log user data for debugging
+            const userData = doc.data();  
+            console.log("User data:", userData); 
 
             const row = document.createElement("tr"); // Create new table row
 
@@ -61,13 +60,12 @@ async function deleteUser(userId, row) {
 
 // Load recipes from localStorage and display them
 function loadRecipes() {
-    const tableBody = document.querySelector("#orders tbody"); // Using orders table for recipes
-    const recipes = JSON.parse(localStorage.getItem("recipes")) || []; // Fetch recipes from localStorage
+    const tableBody = document.querySelector("#orders tbody"); 
+    const recipes = JSON.parse(localStorage.getItem("recipes")) || []; 
 
-    tableBody.innerHTML = ""; // Clear any previous data
-
+    tableBody.innerHTML = ""; 
     recipes.forEach((recipe, index) => {
-        const row = document.createElement("tr"); // Create a new table row
+        const row = document.createElement("tr"); 
 
         row.innerHTML = `
             <td>#00${index + 1}</td>
@@ -81,7 +79,7 @@ function loadRecipes() {
 
         // Add delete functionality for recipe
         row.querySelector(".delete-btn").addEventListener("click", function () {
-            deleteRecipe(index, row); // Call delete function on button click
+            deleteRecipe(index, row); 
         });
     });
 }
@@ -89,10 +87,10 @@ function loadRecipes() {
 // Function to delete recipe from localStorage and remove the row from the table
 function deleteRecipe(index, row) {
     const recipes = JSON.parse(localStorage.getItem("recipes")) || []; // Get all recipes
-    recipes.splice(index, 1); // Remove recipe from array
-    localStorage.setItem("recipes", JSON.stringify(recipes)); // Update localStorage with new array
-    row.remove(); // Remove the corresponding row from the table
-    console.log("Recipe deleted successfully");
+    recipes.splice(index, 1); 
+    localStorage.setItem("recipes", JSON.stringify(recipes)); 
+    row.remove(); 
+   alert("Recipe deleted successfully");
 }
 
 
